@@ -1,0 +1,18 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+
+	<h1>Keith圖書館主頁</h1>
+	<p>歡迎來到Keith圖書館!!</p>
+
+	<h2>動態紀錄：</h2>
+	<p>以下是圖書館紀錄</p>
+	<ul>
+		<li><strong>書本數: </strong>{{ num_books }}</li>	
+		<li><strong>副本數: </strong>{{ num_bookinstances }}</li>
+		<li><strong>可借書: </strong>{{ num_bookinstances_available }}</li>
+		<li><strong>作者數: </strong>{{ num_authors }}</li>
+		<p>你造訪了主頁 <strong>{{ num_visits }}</strong> 次</p>
+	</ul>
+
+{% endblock %}

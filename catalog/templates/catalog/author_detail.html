@@ -1,0 +1,19 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+
+	<h1>作者: <strong>{{ author }}</strong>  {% if is_authenticated %}(<a href="{% url 'author_update' author.id %}">更新作者資料</a>){% endif %}</h1>
+	<p>{{ author.date_of_birth }} - {{ author.date_of_death }}</p>
+	<
+	<hr>
+	<h4>著作</h4>
+	{% for book in author.book_set.all %}
+	<div style="margin-left:20px;margin-top:20px">
+		<ul>
+			<li>書名: {{ book.title }}</li>
+		</ul>
+	</div>
+
+	{% endfor %}
+
+{% endblock %}

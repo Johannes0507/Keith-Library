@@ -1,0 +1,24 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+
+	<h1>所有租借的書籍</h1>
+	{% if perms.catalog.can_mark_returned %}
+
+		{% for bookinst in bookinstance_list %}
+
+			<ul>
+				<li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+					<a href="{% url 'book-detail' bookinst.book.pk %}">{{ bookinst.book.title }}</a> 
+					{% if perms.catalog.can_mark_returnted %} <a href="{% url 'renew-book-librarian' bookinst.id %}">({{ bookinst.due_back }})</a> {% endif %}
+					 - <a href="{% url 'author-detail' bookinst.book.author.pk %}">{{ bookinst.book.author }}</a>
+
+				</li>
+			</ul>
+
+		{% endfor %}
+
+	{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'Base.html' %}
+
+
+{% block content %}
+
+	<h1>作者列表</h1>
+	{% for author in author_list %}
+
+		<ul>
+			<li><a href="{{ author.get_absolute_url }}">{{ author }}</a></li>
+		</ul>
+
+	{% endfor %}
+
+{% endblock %}
